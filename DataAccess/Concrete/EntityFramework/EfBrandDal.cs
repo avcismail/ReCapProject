@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -11,12 +12,22 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Brand entity)
         {
-            throw new NotImplementedException();
+            using (CarRentalContext context = new CarRentalContext())
+            {
+                var addedEntity = context.Entry(entity);
+                addedEntity.State = EntityState.Added;
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Brand entity)
         {
-            throw new NotImplementedException();
+            using (CarRentalContext context = new CarRentalContext())
+            {
+                var deletedEntity = context.Entry(entity);
+                deletedEntity.State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public Brand Get(Expression<Func<Brand, bool>> filter)
@@ -36,7 +47,12 @@ namespace DataAccess.Concrete.EntityFramework
 
         public void Update(Brand entity)
         {
-            throw new NotImplementedException();
+            using (CarRentalContext context = new CarRentalContext())
+            {
+                var updatedEntity = context.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }
