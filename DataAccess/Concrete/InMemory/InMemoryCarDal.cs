@@ -15,11 +15,11 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{ Id=1, BrandId=1, ColorId=2, ModelYear=2019, DailyPrice=350, Description="Mercedes" },
-                new Car{ Id=2, BrandId=3, ColorId=1, ModelYear=2020, DailyPrice=420, Description="Audi" },
-                new Car{ Id=3, BrandId=2, ColorId=3, ModelYear=2017, DailyPrice=270, Description="Bmw" },
-                new Car{ Id=4, BrandId=2, ColorId=3, ModelYear=2018, DailyPrice=310, Description="Volvo" },
-                new Car{ Id=5, BrandId=3, ColorId=4, ModelYear=2021, DailyPrice=550, Description="Volkswagen" }
+                new Car{ Id=1, BrandId=1, ColorId=2, ModelYear=2019, DailyPrice=350, CarDescription="Mercedes" },
+                new Car{ Id=2, BrandId=3, ColorId=1, ModelYear=2020, DailyPrice=420, CarDescription="Audi" },
+                new Car{ Id=3, BrandId=2, ColorId=3, ModelYear=2017, DailyPrice=270, CarDescription="Bmw" },
+                new Car{ Id=4, BrandId=2, ColorId=3, ModelYear=2018, DailyPrice=310, CarDescription="Volvo" },
+                new Car{ Id=5, BrandId=3, ColorId=4, ModelYear=2021, DailyPrice=550, CarDescription="Volkswagen" }
             };
         }
         public void Add(Car car)
@@ -60,7 +60,7 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.ModelYear = car.ModelYear;
             carToUpdate.DailyPrice = car.DailyPrice;
-            carToUpdate.Description = car.Description;
+            carToUpdate.CarDescription = car.CarDescription;
         }
     }
 }
